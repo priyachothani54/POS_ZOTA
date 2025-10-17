@@ -1,0 +1,24 @@
+USE [InvoiceMaster]
+GO
+
+/****** Object:  Table [dbo].[Stock_History]    Script Date: 17-10-2025 15:47:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Stock_History](
+	[Stk_Id] [int] NOT NULL,
+	[Product_Code] [int] NULL,
+	[In_Qty] [int] NULL,
+	[Out_Qty] [int] NULL,
+	[AvlStk_Qty] [int] NULL,
+ CONSTRAINT [PK_Stock_History] PRIMARY KEY CLUSTERED 
+(
+	[Stk_Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
