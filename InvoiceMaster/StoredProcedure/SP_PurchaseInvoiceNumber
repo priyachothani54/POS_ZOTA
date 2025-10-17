@@ -1,0 +1,37 @@
+USE [InvoiceMaster]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_PurchaseInvoiceNumber]    Script Date: 17-10-2025 15:51:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROC [dbo].[SP_PurchaseInvoiceNumber]
+    @status NVARCHAR(MAX) = '',
+    @PurchaseInvoiceNumber NVARCHAR(20) = NULL OUTPUT
+AS
+BEGIN
+
+
+
+--	  IF @status = 'PurchaseInvoiceNumber'
+--	  BEGIN
+--		SELECT @PurchaseInvoiceNumber = ISNULL(MAX(PI_No), 10000) + 1 FROM PurchaseInvoice_Header;
+--		SELECT @PurchaseInvoiceNumber AS PurchaseInvoiceNumber;
+--	  END
+    IF @status = 'PurchaseInvoiceNumber'
+    BEGIN
+        DECLARE @MaxNo INT;
+
+        SELECT @MaxNo = ISNULL(MAX(CAST(SUBSTRING(PI_No, 3, LEN(PI_No)) AS INT)), 1000)
+        FROM PurchaseInvoice_Header;
+
+        SET @MaxNo = @MaxNo + 1;
+
+        -- Format like PI1001, PI1002, etc.
+        SET @PurchaseInvoiceNumber = 'PI' + CAST(@MaxNo AS NVARCHAR(10));
+
+        SELECT @PurchaseInvoiceNumber AS PurchaseInvoiceNumber;
+    END
+END
+
