@@ -1,0 +1,19 @@
+USE [InvoiceMaster]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_VendorDetial]    Script Date: 17-10-2025 15:51:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER   proc [dbo].[SP_VendorDetial]
+@status NVARCHAR(MAX) = ''
+As
+Begin
+	Begin
+		if @status = 'VendorDetail'
+		begin
+			select v.Vendor_Code,v.Vendor_Name,v.Vendor_Address,v.Vendor_Type from Vendor_Detail v (NOLOCK);
+		end
+		
+	end
+End
