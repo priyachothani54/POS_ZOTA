@@ -1,0 +1,24 @@
+USE [InvoiceMaster]
+GO
+
+/****** Object:  Table [dbo].[Vendor_Detail]    Script Date: 17-10-2025 15:48:57 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Vendor_Detail](
+	[Vendor_Id] [int] NOT NULL,
+	[Vendor_Code] [nvarchar](50) NULL,
+	[Vendor_Name] [varchar](max) NULL,
+	[Vendor_Address] [nvarchar](max) NULL,
+	[Vendor_Type] [varchar](50) NULL,
+ CONSTRAINT [PK_Vendor_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Vendor_Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
