@@ -1,0 +1,29 @@
+USE [InvoiceMaster]
+GO
+
+/****** Object:  Table [dbo].[PurchaseInvoice_Header]    Script Date: 17-10-2025 15:47:10 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PurchaseInvoice_Header](
+	[PIH_Id] [int] NOT NULL,
+	[PI_No] [nvarchar](max) NULL,
+	[PI_Date] [date] NULL,
+	[PI_DueDate] [date] NULL,
+	[Vendor_Id] [int] NULL,
+	[PI_GrossAmount] [decimal](18, 3) NULL,
+	[PI_Discount_Percenetage] [float] NULL,
+	[PI_Discount_Amount] [decimal](18, 3) NULL,
+	[PI_RoundOff] [decimal](18, 3) NULL,
+	[PI_NetAmount] [decimal](18, 3) NULL,
+ CONSTRAINT [PK_PurchaseInvoice_Header] PRIMARY KEY CLUSTERED 
+(
+	[PIH_Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
